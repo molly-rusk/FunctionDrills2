@@ -11,7 +11,8 @@ const exclaim = function(str) {
 
 // arrow
 // declaration
-// expression
+//expression <-- correct answer
+
 
 
 
@@ -26,7 +27,7 @@ const exclaimTwo = str => {
   return str.toUpperCase() + '!!!'
 }
 
-// arrow
+ // arrow <-- correct answer
 // declaration
 // expression
 
@@ -37,7 +38,8 @@ const exclaimTwo = str => {
   Brownie points if you use a template string
 */
 
-
+const exclaimThree = str => str + '!!!'
+console.log(exclaimThree('hello'))
 
 ////////// PROBLEM 3 //////////
 
@@ -51,7 +53,7 @@ function exclaimFour(str) {
 }
 
 // arrow
-// declaration
+// declaration <-- correct answer
 // expression
 
 
@@ -62,7 +64,9 @@ function exclaimFour(str) {
     Write an arrow function called 'jsNinja' that returns the string: 'I am a JavaScript ninja!'
 */
 
-//CODE HERE
+const jsNinja =  word => {return word}
+
+console.log(jsNinja('I am a JavaScript Ninja!'))
 
 
 
@@ -74,10 +78,21 @@ function exclaimFour(str) {
     The function should return the bigger number. 
     If the numbers are the same, just return the number.
 
-    Brownie points if you use a ternary statement (only spend significant time on this if you have wiggle room)
+    Brownie points if you use a ternary statement 
+    (only spend significant time on this if you have wiggle room)
 */
 
-//CODE HERE
+const compareNums = (num1,num2) => {
+  if(num1>num2){
+    return num1;
+  }
+  else {
+    return num2;
+  }
+}
+
+console.log(compareNums(1,3))
+
 
   
 ////////// PROBLEM 6 //////////
@@ -93,4 +108,6 @@ function exclaimFour(str) {
     that out)
 */
 
-//CODE HERE
+const bestMovie = movieTitle => {return `${movieTitle} is the best movie ever!`}
+console.log(bestMovie('Sharknado'))
+
