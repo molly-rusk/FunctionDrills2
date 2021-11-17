@@ -1,20 +1,25 @@
 ////////// PROBLEM 1 //////////
 
 /*
-  Write a function called multiply that takes in three parameters: two numbers and a callback function.  
-  Invoke the callback, passing in the product of the two numbers multiplied as the argument. 
+  Write a function called multiply that takes in three parameters: two numbers and a callback
+ function.  Invoke the callback, passing in the product of the two numbers multiplied as the
+ argument. 
 */
 
-// CODE HERE
-
+const multiply = (num1, num2, answer) => {
+    if(+num1 && +num2){
+    num1 = +num1
+    num2 = +num2
+    return answer(num1*num2)}
+    }
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// multiply(4, 3, answer => {
-//   console.log('The answer is ' + answer) //should console.log 12
-// })
+multiply(4, 3, answer => {
+  console.log('The answer is ' + answer) //should console.log 12
+})
 
 
 
@@ -35,16 +40,17 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
   Then invoke the callback function, passing in the first element in the array as it's argument.
 */
 
-// CODE HERE 
+const first = (names,firstName) => {return firstName(names[0])}
 
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// first(names, firstName => {
-//   console.log('The first name in names is ' + firstName)
-// })
+ first(names, firstName => {
+  console.log('The first name in names is ' + firstName)
+})
+
 
 
 
@@ -55,16 +61,16 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
   Then invoke the callback, passing in the last element in the array as the argument.
 */
 
-// CODE HERE
+const last = (names,lastName) => {return lastName(names[names.length-1])}
 
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// last(names, lastName => {
-//   console.log('The last name in names is ' + lastName)
-// })
+last(names, lastName => {
+  console.log('The last name in names is ' + lastName)
+})
 
 
 
@@ -77,20 +83,28 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
   If the name does not exist, invoke the callback with false as the argument.
 */
 
-// CODE HERE 
+const contains = (names, personName,result) => {
+  if(names.includes(personName)){
+    return result(true);
+  }
+  else{
+    return result(false);
+  }
+}
+
 
 
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
 
-// contains(names, 'Colt', result => {
-//   if(result === true){
-//     console.log('Colt is in the array')
-//   } else {
-//     console.log('Colt is not in the array')
-//   }
-// })
+contains(names, 'Colt', result => {
+  if(result === true){
+    console.log('Colt is in the array')
+  } else {
+    console.log('Colt is not in the array')
+  }
+})
 
 
 
@@ -102,7 +116,22 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
   Hint: you can use a nested for loop to do this.
 */
 
-// CODE HERE
+const uniq = (array, callback) => {
+  for(let i = 0; i < array.length; i++){
+    for(let j = i + 1; j < array.length; j++){
+    
+      if(array[i] === array[j]){
+        
+        array.splice(i,1)
+        
+      }
+    }
+  }
+
+  callback(array)
+  
+}
+  
 
 /*
   Invoke the uniq function, passing in the names array from above and a callback function.
@@ -115,16 +144,19 @@ var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan']
 
 
 
+uniq(names, uniqArr => {
+  console.log(`The new names array with all the duplicate items removed is ${uniqArr}`)
+})
+
 ////////// PROBLEM 6 //////////
 
 /* 
   Write a function called each that takes in an array of names and a callback function. 
-  For each name in the array, invoke the callback and pass in the name and the name's index as arguments.
+  For each name in the array, invoke the callback and pass in the name and the name's
+   index as arguments.
 */
 
-// CODE HERE 
-
-
+// const each = (arr, callback) => { arr.forEach((element, i) => {return each(names,callback))} }
 /*
   Invoke the each function, passing in the names array and a callback function.
   The callback function should take in two paremeters, item and index.
@@ -167,7 +199,13 @@ var users = [
 
 // CODE HERE 
 
+// const getUserById = (arr, id, callback) ={ 
+//   for(let i = 0; i < arr.length; i++){
+//     if(users[i] === users) {
 
+//     }
+// }
+// }
 // UNCOMMENT THE FUNCTION CALL BELOW
 // RUN THIS FILE WITH NODE
 // CHECK YOUR ANSWER
