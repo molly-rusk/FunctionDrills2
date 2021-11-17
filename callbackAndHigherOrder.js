@@ -156,7 +156,8 @@ uniq(names, uniqArr => {
    index as arguments.
 */
 
-// const each = (arr, callback) => { arr.forEach((element, i) => {return each(names,callback))} }
+
+const each = (arr, cb) => arr.forEach((el, i) => cb(el, i))
 /*
   Invoke the each function, passing in the names array and a callback function.
   The callback function should take in two paremeters, item and index.
