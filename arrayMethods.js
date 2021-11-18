@@ -39,7 +39,8 @@ const prices = [15.00, 23.00, 78.00, 34.00, 12.00, 86.00, 12.00, 79.00, 32.00];
 
 
 
-const postTaxPrices = prices.map(
+const postTaxPrices = prices.map( num => num * 1.07)
+
 
 
 ////////// PROBLEM 3 //////////
@@ -55,14 +56,12 @@ const populations = [8175133, 3792621, 2695598, 2100263];
   (runningTotal, curElement, curIndex, wholeArray)=>{} Arrow Form
 */
 
-// CODE HERE
-//const totalPopulation //  = populations.reduce(/* Provide Your Callback Here */)
-
+const sumPopulation = populations.reduce((acc,element) => acc + element)
 
 
 ////////// PROBLEM 4 //////////
 
-// Do not edit the code below.
+//Do not edit the code below.
 const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulbabunny","CP":135},
 {"monster":"Bulbabunny","CP":250},{"monster":"Ponylopse","CP":277},{"monster":"Ponylopse","CP":184},
 {"monster":"Pikadoughnet","CP":207},{"monster":"Bulbabunny","CP":139},{"monster":"Pikadoughnet","CP":47},
@@ -72,16 +71,17 @@ const monstersInYourPocket = [{"monster":"Bulbabunny","CP":156},{"monster":"Bulb
 {"monster":"Charaflier","CP":55},{"monster":"Bulbabunny","CP":72},{"monster":"Pikadoughnet","CP":300},
 {"monster":"Sandmush","CP":262},{"monster":"Sandmush","CP":25},{"monster":"Charaflier","CP":215},
 {"monster":"Ponylopse","CP":125},{"monster":"Bulbabunny","CP":178}];
+
 // Do not edit the code above.
 
 /*
-  Now we're going to ramp these up a little bit.
-  Instead of just arrays of numbers, we are going to have array of objects that we want to use map, filter, and reduce with.
-  Use the filter method to return only the monsters that have a CP of over 200.
+  Now we're going to ramp these up a little bit. Instead of just arrays of numbers,
+   we are going to have array of objects that we want to use map, filter, and reduce
+   with. Use the filter method to return only the monsters that have a CP of over 200.
 */
 
-// CODE HERE
-//const myStrongest // = monstersInYourPocket.filter(/* Provide Your Callback Here */)
+
+const myStrongest  = monstersInYourPocket.filter(strongMonster => strongMonster.CP > 200)
 
 
 
@@ -92,19 +92,23 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
 {"price":80,"tax":0.11},{"price":69,"tax":0.06},{"price":68,"tax":0.14},
 {"price":72,"tax":0.14},{"price":51,"tax":0.09},{"price":89,"tax":0.15},
 {"price":48,"tax":0.13}];
+
 // Do not edit code above.
 
 /*
-  Use a higher order method to get all the order totals after adding in the sales tax (given to you as a tax rate, hint: you'll need to do some multiplication). Your answer should be an array of numbers, one total for each order.
+  Use a higher order method to get all the order totals after adding in the sales tax 
+  (given to you as a tax rate, hint: you'll need to do some multiplication).
+  Your answer should be an array of numbers, one total for each order.
 */
 
-// CODE HERE
 
+
+const orderTotals = orders.map(order => order.price + (order.price * order.tax))
 
 
 ////////// PROBLEM 6 //////////
 
-// Do not edit the code below.
+//Do not edit the code below.
 const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
 {"owner":"Bob","price":73},{"owner":"Barry","price":57},{"owner":"Barry","price":128},
 {"owner":"Bob","price":119},{"owner":"Barry","price":133},{"owner":"Barry","price":27},
@@ -112,10 +116,10 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
 {"owner":"Barry","price":9},{"owner":"Bob","price":123},{"owner":"Bob","price":135},
 {"owner":"Barry","price":30},{"owner":"Barry","price":129},{"owner":"Barry","price":38},
 {"owner":"Bob","price":133},{"owner":"Barry","price":109},{"owner":"Bob","price":115}];
-// Do not edit the code above.
+// // Do not edit the code above.
 
 /*
   Use a high order method(s) to create to get the sum of bobsTotal.
 */
 
-// CODE HERE
+const bobsTotal = purchases.filter(purchase => purchase.owner === 'Bob').reduce((element,index) => element + index.price, 0)
